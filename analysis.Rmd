@@ -1,0 +1,36 @@
+---
+title: "Re-analysis and re-visualization of Johnson (1995)"
+output: html_notebook
+---
+
+You may need to import several packages. See the codes provided in lecture 1-3.
+
+```{r}
+library(tidyverse)
+```
+
+# Data
+
+The data comes from three experimental conditions (within-subjects design):
+
+* `PBg` Finger motion on screen shifts the background
+* `PCam` Finger motion on screen shifts the camera
+* `TECam` Press edge of the screen that the background is to shift towards
+
+Three measurements are collected and aggregated from three panning of the user interface:
+
+* `avg_time_sec_*` average time
+* `avg_moves_*` average number of moves
+* `total_errors_*` total number of errors (wrong direction)
+
+For your convenience, the data comes in both wide and long format.
+
+```{r load data}
+data_wide <- 
+  read_csv("data/Johnson1995-wide.csv", col_types = "cicddddddiii")
+
+
+data_long <-
+  read_csv("data/Johnson1995-long.csv", col_types = "cicccd")
+```
+
